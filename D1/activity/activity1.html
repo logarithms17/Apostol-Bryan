@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 style="color: orangered;">Activity</h1>
+        <h2>Welcome to Cafe Delights</h2>
+        <p>Your cozy corner for the best coffee and treats in town</p>
+    </header>
+
+    <main>
+        <h3>Contact Us</h3>
+        <p>We'd love to hear from you! Please fill out the form below.</p>
+
+        <section>
+            <form>
+
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+                    <br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <br>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required><br>
+                    <br>
+
+                    <label for="date-of-birth">Date of Birth:</label>
+                    <input type="date" id="date-of-birth" name="date-of-birth" required><br>
+                    <br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Visit Information</legend>
+                    <br>
+                    <label for="visit-date">Preferred Visit Date:</label>
+                    <input type="date" id="visit-date" name="visit-date" required><br>
+                    <br>
+
+                    <label for="visit-time">Preferred Time:</label>
+                    <input type="time" id="visit-time" name="visit-time" required><br>
+                    <br>
+
+                    <label for="returning-customer">Are you a returning customer?</label>
+                    <br>
+                    <input type="radio" id="yes" name="returning-customer" value="yes">
+                    <label for="yes">Yes</label>
+                    <br>
+                    <input type="radio" id="no" name="returning-customer" value="no">
+                    <label for="no">No</label><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Order Preferences</legend>
+                    <label for="favorite-drink">Favorite Drink:</label>
+                    <select id="favorite-drink" name="favorite-drink">
+                        <option value="coffee">Latte</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="tea">Tea</option>
+                        <option value="milk-tea">Milk Tea</option>
+                    </select>
+                    <br>
+                    <br>
+
+                    <label for="dietary-preference">Select your dietary preferences:</label>
+                    <br>
+                    <input type="checkbox" id="dietary-preference" name="dietary-preference" value="Vegan">
+                    <label for="vegan">Vegan</label>
+                    <br>
+                    <input type="checkbox" id="dietary-preference" name="dietary-preference" value="vegetarian">
+                    <label for="vegetarian">Vegetarian</label>
+                    <br>
+                    <input type="checkbox" id="dietary-preference" name="dietary-preference" value="Gluten-Free">
+                    <label for="vegetarian">Gluten-Free</label>
+                    <br>
+                </fieldset>
+            
+                <fieldset>
+                    <legend>Feedback</legend>
+                    <label for="rate-last-visit">Rate Your Last Visit (1-5):</label>
+                    <input type="range" id="rate-last-visit" name="rate-last-visit" min="1" max="5"><br>
+                    <br>
+
+                    <label for="comments">Additional Comments:</label>
+                    <br>
+                    <textarea id="comments" name="comments" rows="5" cols="50"></textarea>
+                    <br>
+                    <br>
+
+                    <label for="newsletter">Would you like to receive our newsletter?</label>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+        </section>
+    </main> 
+</body>
+</html>
