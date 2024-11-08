@@ -17,7 +17,8 @@
 // Repeat steps 7-11 until the guessedNumber matches the secretNumber.
 // End the game.
 
-console.log(`Welcome to the Guess the Secret Number game!`);
+let playerName = prompt("Enter your name: ")
+console.log(`Welcome ${playerName} to the Guess the Secret Number game!`);
 
 const secretNumber = Math.floor(Math.random() * 10) + 1;
 let attempts = 0;
@@ -27,15 +28,14 @@ console.log(secretNumber)
 let guessedNumber
 
 do {
-    
-    guessedNumber = prompt("Enter your guess: ");
+    guessedNumber = parseInt(prompt("Enter your guess: "), 10);
     attempts += 1;
 
     if (guessedNumber < secretNumber) {
-        console.log("Too low! Try again.");
+        alert("Too low! Try again.");
     } else if (guessedNumber > secretNumber) {
-        console.log("Too high! Try again.");
+        alert("Too high! Try again.");
     } else {
-        console.log(`Congratulations! You guessed the correct number: ${secretNumber}`);
+        alert(`Congratulations! You guessed the correct number: ${secretNumber}`);
     }
 } while (guessedNumber !== secretNumber);
