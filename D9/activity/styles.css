@@ -7,13 +7,15 @@
     align-items: start;
     gap: 20px;
     justify-content: start;
+    width: 1280px;
+    padding: 30px;
 }
 
 .card {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 400px;
+    width: 350px;
     height: 800px;
     margin: 20px;
     overflow: hidden;
