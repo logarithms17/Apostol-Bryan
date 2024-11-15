@@ -1,21 +1,30 @@
+
 .productContainer {
+    margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: start;
     gap: 20px;
+    justify-content: start;
 }
 
 .card {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* width: 400px; */
+    width: 400px;
     height: 800px;
     margin: 20px;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .container {
