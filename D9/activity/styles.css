@@ -1,0 +1,41 @@
+.productContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 800px;
+    margin: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.card-subtitle {
+    color: #6c757d;
+}
+
+.card-text {
+    margin-bottom: 5px;
+}
+
+.card-link {
+    color: #007bff;
+    text-decoration: none;
+}
