@@ -9,7 +9,7 @@ const fetchAllProducts = async () => {
             productContent += `
             <div class="col">
                 <div class="card">
-                    <img src="${product.image}" class="card-img-top" style="height: 500px;" alt="${product.title}" >
+                    <img src="${product.image}" class="card-img-top" style="height: 400px; width: 400px" alt="${product.title}" >
                     <div class="card-body">
                         <h5 class="card-title">${product.title}</h5>
                         <p class="card-text">${product.description}</p>

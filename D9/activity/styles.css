@@ -13,6 +13,7 @@
     width: 400px;
     height: 800px;
     margin: 20px;
+    overflow: hidden;
 }
 
 .container {
