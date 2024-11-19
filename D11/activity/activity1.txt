@@ -1,0 +1,61 @@
+Step 3:
+a.) db.Books.insertMany([{
+  _id: ObjectId("673c8a2bd43112346b7d6f21"),
+  title: "To Kill a Mockingbird",
+  author: {
+    name: "Harper Lee",
+    nationality: "American"
+  },
+  genre: "Fiction",
+  publishedYear: 1960
+}
+,
+{
+  _id: ObjectId("673c8a3cd43112346b7d6f22"),
+  title: "1984",
+  author: {
+    name: "George Orwell",
+    nationality: "British"
+  },
+  genre: "Dystopian",
+  publishedYear: 1949
+}
+,
+{
+  _id: ObjectId("673c8a4dd43112346b7d6f23"),
+  title: "The Great Gatsby",
+  author: {
+    name: "F. Scott Fitzgerald",
+    nationality: "American"
+  },
+  genre: "Classic",
+  publishedYear: 1925
+}])
+
+b.)db.Books.find()
+
+ db.Books.find({
+  $or: [
+    { title: "1984" },
+    { "author.name": "Harper Lee" }
+  ]
+});
+
+c.) db.Books.updateOne(
+  { title: "The Great Gatsby" }, // Filter: Finds the document by title
+  { $set: { genre: "Modern Classic" } } // Update: Changes the genre field
+);
+
+db.Books.updateOne(
+  { title: "1984" }, // Filter: Finds the document by title
+  { $set: { publishedYear: 1950 } } // Update: Changes the publication year
+);
+
+d.) db.Books.deleteOne({
+  $or: [
+    { title: "The Great Gatsby" },
+    { "author.name": "George Orwell" }
+  ]
+});
+
+4.) db.Books.find()
