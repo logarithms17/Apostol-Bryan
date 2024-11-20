@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Introduction to MongoDB",
+    "content": "MongoDB is a NoSQL database...",
+    "author": ObjectId("673dc3530f2d48383e479837")
+  },
+  {
+    "title": "Schema Design Best Practices",
+    "content": "Embedding vs referencing...",
+    "author": ObjectId("673dc3530f2d48383e479838")
+  }
+]
+
+673dcde30f2d48383e479854
+
+673dce440f2d48383e479858
+
+673dce640f2d48383e47985a
+
+db.Users.updateOne(
+  { _id: ObjectId("673dce6f954f8b5304c356db") },
+  { $set: { friends: [ObjectId("673dce8b954f8b5304c356dd"), ObjectId("673dce9e954f8b5304c356df")] } }
+);

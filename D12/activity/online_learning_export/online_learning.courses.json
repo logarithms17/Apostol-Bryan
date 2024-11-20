@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "673ddc0268e0a761a2d5cce2"
+  },
+  "title": "Introduction to MongoDB",
+  "description": "Learn the basics of MongoDB.",
+  "category": {
+    "$oid": "673ddad6da1aa1ff279986d5"
+  },
+  "instructor": {
+    "$oid": "673ddb022909f056dc812648"
+  },
+  "students": [
+    {
+      "$oid": "673ddb28e3cdd2de352ea83f"
+    },
+    {
+      "$oid": "673ddb28e3cdd2de352ea840"
+    }
+  ],
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Great course!",
+      "student": {
+        "$oid": "673ddb28e3cdd2de352ea83f"
+      }
+    },
+    {
+      "rating": 4,
+      "comment": "Very informative.",
+      "student": {
+        "$oid": "673ddb28e3cdd2de352ea840"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "673ddc0268e0a761a2d5cce3"
+  },
+  "title": "Data Science with Python",
+  "description": "A comprehensive guide to data science using Python.",
+  "category": {
+    "$oid": "673ddad6da1aa1ff279986d6"
+  },
+  "instructor": {
+    "$oid": "673ddb022909f056dc812649"
+  },
+  "students": [
+    {
+      "$oid": "673ddb28e3cdd2de352ea841"
+    }
+  ],
+  "reviews": [
+    {
+      "rating": 4,
+      "comment": "Good introduction.",
+      "student": {
+        "$oid": "673ddb28e3cdd2de352ea841"
+      }
+    }
+  ]
+}]

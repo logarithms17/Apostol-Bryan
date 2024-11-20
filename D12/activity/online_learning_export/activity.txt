@@ -1,0 +1,237 @@
+1. Retrieve all courses in the "Programming" category.
+
+CODE:
+
+db.courses.find({category: ObjectId('673ddad6da1aa1ff279986d5')})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce2'),
+  title: 'Introduction to MongoDB',
+  description: 'Learn the basics of MongoDB.',
+  category: ObjectId('673ddad6da1aa1ff279986d5'),
+  instructor: ObjectId('673ddb022909f056dc812648'),
+  students: [
+    ObjectId('673ddb28e3cdd2de352ea83f'),
+    ObjectId('673ddb28e3cdd2de352ea840')
+  ],
+  reviews: [
+    {
+      rating: 5,
+      comment: 'Great course!',
+      student: ObjectId('673ddb28e3cdd2de352ea83f')
+    },
+    {
+      rating: 4,
+      comment: 'Very informative.',
+      student: ObjectId('673ddb28e3cdd2de352ea840')
+    }
+  ]
+}
+
+2. Retrieve all students enrolled in the course "Introduction to MongoDB".
+
+CODE: 
+
+db.students.find({enrolledCourses: [ObjectId('673ddc0268e0a761a2d5cce2')]})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddb28e3cdd2de352ea83f'),
+  name: 'Alice Johnson',
+  email: 'alice.j@example.com',
+  enrolledCourses: [
+    ObjectId('673ddc0268e0a761a2d5cce2')
+  ]
+}
+
+{
+  _id: ObjectId('673ddb28e3cdd2de352ea840'),
+  name: 'Bob Brown',
+  email: 'bob.b@example.com',
+  enrolledCourses: [
+    ObjectId('673ddc0268e0a761a2d5cce2')
+  ]
+}
+
+3. Retrieve course details, including category and instructor information, for all courses.
+
+CODE:
+
+db.courses.find({}, {category: 1, instructor: 1})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce2'),
+  category: ObjectId('673ddad6da1aa1ff279986d5'),
+  instructor: ObjectId('673ddb022909f056dc812648')
+}
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce3'),
+  category: ObjectId('673ddad6da1aa1ff279986d6'),
+  instructor: ObjectId('673ddb022909f056dc812649')
+}
+
+4. Retrieve all reviews for the course "Data Science with Python," including the details of the students who wrote them.
+
+CODE:
+
+db.courses.find({title: "Data Science with Python"}, {reviews: 1})
+
+RESULT:
+{
+ _id: ObjectId('673ddc0268e0a761a2d5cce3'),
+  reviews: [
+    {
+      rating: 4,
+      comment: 'Good introduction.',
+      student: ObjectId('673ddb28e3cdd2de352ea841')
+    }
+  ]
+}
+
+5. Find the average rating for each course.
+
+CODE: 
+
+db.courses.aggregate([
+  { $unwind: "$reviews" },
+  {
+    $group: {
+      _id: "$title",
+      averageRating: { $avg: "$reviews.rating" }
+    }
+  },
+  {
+    $project: {
+      _id: 0, // Exclude the _id field
+      title: "$_id",
+      averageRating: 1
+    }
+  }
+]);
+
+RESULT:
+
+{
+  averageRating: 4.5,
+  title: 'Introduction to MongoDB'
+}
+
+{
+  averageRating: 4,
+  title: 'Data Science with Python'
+}
+
+6. Retrieve all courses taught by the instructor "Jane Doe".
+
+CODE:
+
+db.instructors.find({name: "Jane Doe"}, {teachingCourses: 1})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddb022909f056dc812649'),
+  teachingCourses: [
+    ObjectId('673ddc0268e0a761a2d5cce3')
+  ]
+}
+
+7. Count the number of courses in each category.
+
+CODE: 
+
+db.courses.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      courseCount: { $sum: 1 }
+    }
+  }
+]);
+
+RESULT:
+
+{
+  _id: ObjectId('673ddad6da1aa1ff279986d6'),
+  courseCount: 1
+}
+
+{
+  _id: ObjectId('673ddad6da1aa1ff279986d5'),
+  courseCount: 1
+}
+
+8. Find all students who have reviewed the course "Introduction to MongoDB".
+
+CODE:
+
+db.courses.find({title: "Introduction to MongoDB"}, {"reviews.student": 1})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce2'),
+  reviews: [
+    {
+      student: ObjectId('673ddb28e3cdd2de352ea83f')
+    },
+    {
+      student: ObjectId('673ddb28e3cdd2de352ea840')
+    }
+  ]
+}
+
+9. Retrieve the titles of all courses where the average rating is above 4.
+
+CODE: 
+
+db.courses.find({ "reviews.rating": {$gt: 4}})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce2'),
+  title: 'Introduction to MongoDB',
+  description: 'Learn the basics of MongoDB.',
+  category: ObjectId('673ddad6da1aa1ff279986d5'),
+  instructor: ObjectId('673ddb022909f056dc812648'),
+  students: [
+    ObjectId('673ddb28e3cdd2de352ea83f'),
+    ObjectId('673ddb28e3cdd2de352ea840')
+  ],
+  reviews: [
+    {
+      rating: 5,
+      comment: 'Great course!',
+      student: ObjectId('673ddb28e3cdd2de352ea83f')
+    },
+    {
+      rating: 4,
+      comment: 'Very informative.',
+      student: ObjectId('673ddb28e3cdd2de352ea840')
+    }
+  ]
+}
+
+10: Retrieve all students who are enrolled in courses taught by "John Smith".
+
+CODE:
+
+db.courses.find({instructor: ObjectId('673ddb022909f056dc812648')}, {instructor: 1, students: 1})
+
+RESULT:
+
+{
+  _id: ObjectId('673ddc0268e0a761a2d5cce2'),
+  instructor: ObjectId('673ddb022909f056dc812648'),
+  students: [
+    ObjectId('673ddb28e3cdd2de352ea83f'),
+    ObjectId('673ddb28e3cdd2de352ea840')
+  ]
+}
