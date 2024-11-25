@@ -12,6 +12,8 @@ const port = process.env.PORT || 3000
 
 const app = express()
 
+// Middleware
+app.use(express.json()); // Parses JSON requests
 
 //connect to database
 const connectToDatabase = async () => {
