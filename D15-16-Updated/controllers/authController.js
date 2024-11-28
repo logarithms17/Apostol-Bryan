@@ -45,7 +45,7 @@ const login = async (req, res) => {
         );
         //add token to the db
         // await User.findByIdAndUpdate(user._id, { token })
-        
+        console.log(user)
         // Send response to the client
         return res.status(200).json({
             message: "Login successful",

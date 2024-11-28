@@ -16,11 +16,14 @@ app.use(express.urlencoded({ extended: true }))
 // Import Routes
 import router from './routes/authRoutes.js'
 import blogRoutes from './routes/blogRoutes.js'
+import commentRoutes from './routes/commentRoutes.js'
 
 // Routes
 app.use('/api/auth', router);
 
 app.use('/api/blogs', blogRoutes)
+
+app.use('/api/comments', commentRoutes)
 
 const connectToDatabase = async () => {
     try {
