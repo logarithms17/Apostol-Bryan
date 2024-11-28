@@ -14,11 +14,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/team",
+        path: "team",
         element: <Team />,
       },
       {
-        path: "/team/:id",
+        path: "team/:id",
         element: <TeamDetails />,
       },
     ],
