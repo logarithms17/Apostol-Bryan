@@ -7,7 +7,7 @@ const AdminAuthPage = () => {
   console.log(data);
 
   return (
-    <div className="flex flex-col justify-center items-center border p-4 border-black w-1/4 rounded-xl py-10">
+    <div className="flex flex-col justify-center items-center border p-4 border-black w-1/4 rounded-xl py-10 mt-10">
       <h1 className="text-3xl font-bold mb-6">Admin Login</h1>
       <Form
         method="post"

@@ -19,12 +19,11 @@ const SeminarsList = ({ seminars }) => {
     } catch (error) {
       console.log(error);
     }
-    };
-    
-    const handleUpdate = async (id) => {
-        console.log(id);
-        
-    }
+  };
+
+  const handleUpdate = async (id) => {
+    console.log(id);
+  };
   return (
     <div>
       <h1 className="text-3xl font-bold text-center">Seminars List</h1>
@@ -45,11 +44,19 @@ const SeminarsList = ({ seminars }) => {
             <p>To: {seminar.timeFrame.to}</p>
             <p>Venue: {seminar.venue}</p>
             <p>Speaker:</p>
-            <p>{seminar.speaker.name}</p>
-            <img src={seminar.speaker.image} className="w-20" alt="" />
-            <p>{seminar.linkedin}</p>
-            <p>{seminar.fee}</p>
-            <p>{seminar.slotsAvailable}</p>
+            <p>Speaker Name: {seminar.speaker.name}</p>
+            <p>
+              Avatar:{" "}
+              <img
+                src={`/images/${seminar.speaker.image}`}
+                className="w-20 h-20"
+                alt=""
+              />
+            </p>
+
+            <p>Linkedin: {seminar.linkedin}</p>
+            <p>Fee: {seminar.fee}</p>
+            <p>Available slots:{seminar.slotsAvailable}</p>
             <button className="mr-2">Update</button>
             <button onClick={() => handleDelete(seminar._id)}>Delete</button>
           </li>
@@ -82,4 +89,3 @@ export const deleteSeminarAction = async (seminarId) => {
 
   return response.data;
 };
-
